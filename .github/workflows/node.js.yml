@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Clone repository
         run: git clone https://github.com/berstend/puppeteer-extra.git puppeteer-extra --depth=1
@@ -30,11 +30,11 @@ jobs:
           cp stealth.min.js ../../../
       
       - name: Commit stealth.min.js
-        uses: EndBug/add-and-commit@v4
+        uses: EndBug/add-and-commit@v9
         with:
           add: 'stealth.min.js'
           force: true
           ref: 'main'
-          message: 'Auto-updated stealth.min.js with newest evasions'
+          message: 'stealth.min.js update'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
